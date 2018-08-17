@@ -40,9 +40,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/NiluPlatform/go-nilu/common"
+	"github.com/NiluPlatform/go-nilu/crypto"
+	"github.com/NiluPlatform/go-nilu/log"
 )
 
 var (
@@ -433,7 +433,7 @@ func GetSeedHash(blockNum uint64) ([]byte, error) {
 
 func makeSeedHash(epoch uint64) (sh common.Hash) {
 	for ; epoch > 0; epoch-- {
-		sh = crypto.Sha3Hash(sh[:])
+		sh = crypto.Keccak256Hash(sh[:])
 	}
 	return sh
 }
